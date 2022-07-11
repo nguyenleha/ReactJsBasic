@@ -1,0 +1,2 @@
+terminal 
+npm i 

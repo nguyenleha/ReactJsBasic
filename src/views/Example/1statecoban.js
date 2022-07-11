@@ -10,6 +10,10 @@ class Statecoban extends React.Component {
             id: event.target.value,
         })
     }
+    nutbam = (event) => {
+        alert("Hello word")
+        console.log("test")
+    }
     render() {
         const meme = this.state.id
         return (
@@ -19,6 +23,9 @@ class Statecoban extends React.Component {
                         onChange={(event) => this.doikytu(event)}
                     />
                     so id: {meme}
+                </div>
+                <div>
+                    <button onClick={(event) => this.nutbam(event)}>click me</button>
                 </div>
             </>
         )
