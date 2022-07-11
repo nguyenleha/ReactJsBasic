@@ -4,7 +4,7 @@ class Conprops extends React.Component {
     state = {
         hien: false,
     }
-    anhien = (event) =>{
+    anhien = (event) => {
         this.setState(
             {
                 hien: !this.state.hien
@@ -13,13 +13,12 @@ class Conprops extends React.Component {
     }
     render() {
 
-        const { Name, Lname, arr } = this.props;
+        const { arr } = this.props;
         const { hien } = this.state;
         console.log(">> check props", this.props)
         //dat ten giong ben formhtml
         return (
             <>
-                <div>Child Conprops: {Name} {Lname}</div>
                 {hien === false ?
                     <div>
                         <button onClick={(event) => this.anhien(event)}>hien</button>
