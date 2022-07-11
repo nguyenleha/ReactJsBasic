@@ -1,9 +1,15 @@
 import React from "react";
+import Conprops from "./3conprops";
 
 class Formhtmlnangcao extends React.Component {
     state = {
         FirstName: "",
-        LastName: ""
+        LastName: "",
+        arrJobs: [
+            { id: "01", title: "nguyen", tien: "100" },
+            { id: "02", title: "le", tien: "200" },
+            { id: "03", title: "ha", tien: "300" },
+        ],
     }
     thaydoiFirstName = (event) => {
         this.setState({
@@ -17,11 +23,10 @@ class Formhtmlnangcao extends React.Component {
     }
     bamdangnhap = (event) => {
         event.preventDefault()
-        console.log('>>> check data: ',this.state)
+        console.log('>>> check data: ', this.state)
     }
     render() {
-        const FirstName = this.state.FirstName
-        const LastName = this.state.LastName
+        const { FirstName, LastName, arrJobs } = this.state;
         return (
             <>
                 <form >
@@ -46,6 +51,12 @@ class Formhtmlnangcao extends React.Component {
                         type="button"
                         value="Submit"
                         onClick={(event) => this.bamdangnhap(event)} />
+
+                    <Conprops
+                        Name={FirstName}
+                        Lname={LastName}
+                        arr={arrJobs}
+                    />
                 </form>
             </>
         )
