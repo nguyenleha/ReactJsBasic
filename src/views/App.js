@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.scss';
-// import Statecoban from './Example/1statecoban';
-// import Formhtmlcoban from './Example/2formhtmlcoban';
-import Formhtmlnangcao from './Example/3formhtmlnangcao';
+// import Statecoban from './Example/1-2-3coban/1statecoban';
+// import Formhtmlcoban from './Example/1-2-3coban/2formhtmlcoban';
+// import Formhtmlnangcao from './Example/1-2-3coban/3formhtmlnangcao';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
 
         {/* <Statecoban /> */}
         {/* <Formhtmlcoban /> */}
-        <Formhtmlnangcao />
+        {/* <Formhtmlnangcao /> */}
       </header>
     </div>
   );

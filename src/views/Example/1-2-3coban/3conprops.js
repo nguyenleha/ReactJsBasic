@@ -19,7 +19,7 @@ class Conprops extends React.Component {
         //dat ten giong ben formhtml
         return (
             <>
-                <div>Child Conprops: {Name} - {Lname}</div>
+                <div>Child Conprops: {Name} {Lname}</div>
                 {hien === false ?
                     <div>
                         <button onClick={(event) => this.anhien(event)}>hien</button>
