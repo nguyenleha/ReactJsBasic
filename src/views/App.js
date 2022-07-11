@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.scss';
+import Statecoban from './Example/statecoban';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <Statecoban/>
       </header>
     </div>
   );
