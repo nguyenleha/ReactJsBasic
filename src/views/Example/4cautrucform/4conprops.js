@@ -29,9 +29,13 @@ class Conprops extends React.Component {
                             {
                                 arr.map((item, index) => {
                                     return (
-                                        <div key={item.id}>
+                                    <>
+                                    <div key={item.id}>
                                             {item.id} - {item.title} -{item.tien}
+                                            <button onClick={(event) => this.xoa(event)}>delete</button>
                                         </div>
+                                        
+                                    </>
                                     )
                                 })
                             }

@@ -17,8 +17,20 @@ class taolistmoi extends React.Component {
     }
     bamdangnhap = (event) => {
         event.preventDefault()
+        if(!this.state.title||!this.state.tien){
+            alert("vui long dien ten")
+            return;
+        }
         console.log('>>> check data: ', this.state)
-        
+        this.props.taomoijob({
+            id: Math.floor(Math.random() * 100),
+            title: this.state.title,
+            tien: this.state.tien
+        })
+        this.setState({
+            title: '',
+            tien: ""
+        })
     }
     render() {
         const { title, tien } = this.state;

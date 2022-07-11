@@ -11,11 +11,23 @@ class Formhtmlnangcao4 extends React.Component {
         ],
     }
 
+    taomoijob = (moi) => {
+        this.setState({
+            arrJobs: [...this.state.arrJobs, moi]
+        })
+
+    }
+    // xoajob = (xoa) =>{
+
+    // }
+
     render() {
-        const { title, tien, arrJobs } = this.state;
+        const { arrJobs } = this.state;
         return (
             <>
-                <Taolistmoi />
+                <Taolistmoi
+                    taomoijob={this.taomoijob}
+                />
                 <Conprops
                     arr={arrJobs}
                 />
