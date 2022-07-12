@@ -21,7 +21,7 @@ class taolistmoi extends React.Component {
             alert("vui long dien ten")
             return;
         }
-        console.log('>>> check data: ', this.state)
+        // console.log('>>> check data: ', this.state)
         this.props.taomoijob({
             id: Math.floor(Math.random() * 100),
             title: this.state.title,

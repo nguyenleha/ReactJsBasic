@@ -12,13 +12,13 @@ class Conprops extends React.Component {
         )
     }
     xoajob = (event) => {
-        console.log("clsd")
+        // console.log("clsd")
         this.props.xoajob(event)
     }
     render() {
         const { arr } = this.props;
         const { hien } = this.state;
-        console.log(">> check props", this.props)
+        // console.log(">> check props", this.props)
         //dat ten giong ben formhtml
         return (
             <>
