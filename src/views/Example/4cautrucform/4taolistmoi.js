@@ -17,7 +17,7 @@ class taolistmoi extends React.Component {
     }
     bamdangnhap = (event) => {
         event.preventDefault()
-        if(!this.state.title||!this.state.tien){
+        if (!this.state.title || !this.state.tien) {
             alert("vui long dien ten")
             return;
         }
@@ -29,7 +29,7 @@ class taolistmoi extends React.Component {
         })
         this.setState({
             title: '',
-            tien: ""
+            tien: ''
         })
     }
     render() {
