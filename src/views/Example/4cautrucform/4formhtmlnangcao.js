@@ -31,6 +31,15 @@ class Formhtmlnangcao4 extends React.Component {
         })
     }
 
+
+    componentDidMount() {
+        console.log("call did")
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log("call props", prevProps ,"call state", prevState)
+    }
+    // react lifecycle method
+
     render() {
         const { arrJobs } = this.state;
         return (
