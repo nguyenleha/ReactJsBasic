@@ -46,7 +46,7 @@ class Themxoasua6 extends React.Component {
     render() {
         const { suatk } = this.state
         const suataikhoan = Object.keys(suatk).Length === 0
-        console.log(">>> Check empty object", suataikhoan)
+        // console.log(">>> Check empty object", suataikhoan)
         return (
             <>
                 <div className="login">
@@ -54,7 +54,7 @@ class Themxoasua6 extends React.Component {
                     <p>Bài test Thêm - Xóa - Sửa</p>
                     <div className="login_box">
                         <Themlist themtaikhoan={this.themtaikhoan} />
-                        <Show tongmang={this.state.tongmang} xoataikhoan={this.xoataikhoan} />
+                        <Show suataikhoan={suataikhoan} tongmang={this.state.tongmang} xoataikhoan={this.xoataikhoan} />
                     </div>
                 </div>
             </>

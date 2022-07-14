@@ -2,14 +2,15 @@ import React from "react";
 import "./style.scss"
 
 class Show extends React.Component {
-    
+
     deletetk = (event) => {
         this.props.xoataikhoan(event)
     }
 
 
     render() {
-        const { tongmang } = this.props;
+        const { tongmang, suataikhoan} = this.props;
+        console.log(">>> Check empty object ben show", suataikhoan)
         return (
             <>
                 <div className="right">
@@ -19,21 +20,23 @@ class Show extends React.Component {
                             {
                                 tongmang.map((item, index) => {
                                     return (
-                                        <tr key={item.id}>
-                                            <th>{item.username}</th>
-                                            <th>{item.pw}</th>
-                                            <th>
-                                                <button>
-                                                    Edit
-                                                </button>
-                                            </th>
-                                            <th>
-                                                <button
-                                                    onClick={() => this.deletetk(item)}>
-                                                    Delete
-                                                </button>
-                                            </th>
-                                        </tr>
+                                        <tbody key={item.id}>
+                                            <tr  >
+                                                <th>{item.username}</th>
+                                                <th>{item.pw}</th>
+                                                <th>
+                                                    <button>
+                                                        Edit
+                                                    </button>
+                                                </th>
+                                                <th>
+                                                    <button
+                                                        onClick={() => this.deletetk(item)}>
+                                                        Delete
+                                                    </button>
+                                                </th>
+                                            </tr>
+                                        </tbody>
                                     )
                                 })
                             }
