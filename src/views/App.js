@@ -1,5 +1,7 @@
 // import logo from './logo.svg';
 import './App.scss';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import Statecoban from './Example/1-2-3coban/1statecoban';
 // import Formhtmlcoban from './Example/1-2-3coban/2formhtmlcoban';
 // import Formhtmlnangcao from './Example/1-2-3coban/3formhtmlnangcao';
@@ -17,8 +19,22 @@ function App() {
         {/* <Formhtmlnangcao /> */}
         {/* <Formhtmlnangcao4/> */}
         {/* <Filescss5/> */}
-        <Themxoasua6/>
+        <Themxoasua6 />
       </header>
+
+
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {/* search toastify react */}
     </div>
   );
 }

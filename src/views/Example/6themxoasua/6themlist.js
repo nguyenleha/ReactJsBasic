@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss"
-
+import { toast } from 'react-toastify';
 
 class Themlist extends React.Component {
     state = {
@@ -20,7 +20,7 @@ class Themlist extends React.Component {
     Bamtao = (event) => {
         event.preventDefault()
         if(!this.state.username || !this.state.pw){
-            alert('vui long dang nhap')
+            toast.error('Nhap thieu')
             return
         }
         this.props.themtaikhoan({
@@ -32,6 +32,8 @@ class Themlist extends React.Component {
             username: "",
             pw: ""
         })
+        toast.success('nhap thanh cong')
+
     }
     render() {
         const { username, pw } = this.state

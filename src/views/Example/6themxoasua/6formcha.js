@@ -11,7 +11,7 @@ class Themxoasua6 extends React.Component {
             { id: '02', username: "le", pw: "123456" },
             { id: '03', username: "nguyen", pw: "123456" }
         ],
-        suatk: {}
+        dulieusuatk: {}
     }
     themtaikhoan = (them) => {
         this.setState({
@@ -25,27 +25,32 @@ class Themxoasua6 extends React.Component {
             tongmang: xoataikhoan
         })
     }
-    doitaikhoan = (doi)=> {
-        
+    doitaikhoan = (doi) => {
+        const nutsua = { ...this.state.dulieusuatk }
+        nutsua.username= doi.target.value
+        // nutsua.pw= doi.target.value
+        this.setState({
+            dulieusuatk: nutsua
+        })
     }
     suataikhoan = (sua) => {
-        const { suatk, tongmang } = this.state
-        const suataikhoan = Object.keys(suatk).Length === 0
-        if (suataikhoan === false && suatk.id === sua.id) {
+        const { dulieusuatk, tongmang } = this.state
+        const suataikhoan = Object.keys(dulieusuatk).length === 0
+        if (suataikhoan === false && dulieusuatk.id === sua.id) {
             const taikhoanao = [...tongmang]
             const truytimid = taikhoanao.findIndex((item) => item.id === sua.id)
-            taikhoanao[truytimid].username=suatk.username
-            taikhoanao[truytimid].pw=suatk.username
+            taikhoanao[truytimid].username = dulieusuatk.username
+            taikhoanao[truytimid].pw = dulieusuatk.username
             this.setState({
                 tongmang: taikhoanao,
-                suatk: {}
+                dulieusuatk: {}
             })
         }
     }
 
     render() {
-        const { suatk } = this.state
-        const suataikhoan = Object.keys(suatk).Length === 0
+        const { dulieusuatk } = this.state
+        const suataikhoan = Object.keys(dulieusuatk).length === 0 //tra ra true, neu Length (L viet hoa) tra ra false
         // console.log(">>> Check empty object", suataikhoan)
         return (
             <>
@@ -54,7 +59,12 @@ class Themxoasua6 extends React.Component {
                     <p>Bài test Thêm - Xóa - Sửa</p>
                     <div className="login_box">
                         <Themlist themtaikhoan={this.themtaikhoan} />
-                        <Show suataikhoan={suataikhoan} tongmang={this.state.tongmang} xoataikhoan={this.xoataikhoan} />
+                        <Show 
+                        suataikhoan={suataikhoan} 
+                        dulieusuatk={dulieusuatk}
+                        tongmang={this.state.tongmang}
+                         xoataikhoan={this.xoataikhoan} 
+                         doitaikhoan={this.doitaikhoan}/>
                     </div>
                 </div>
             </>

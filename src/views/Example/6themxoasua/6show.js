@@ -6,11 +6,14 @@ class Show extends React.Component {
     deletetk = (event) => {
         this.props.xoataikhoan(event)
     }
-
+    edittk = (event) =>{
+        this.props.doitaikhoan(event)
+    }
 
     render() {
-        const { tongmang, suataikhoan} = this.props;
+        const { tongmang, suataikhoan, dulieusuatk} = this.props;
         console.log(">>> Check empty object ben show", suataikhoan)
+        console.log(">>> Check empty object ben show", dulieusuatk)
         return (
             <>
                 <div className="right">
@@ -18,14 +21,26 @@ class Show extends React.Component {
                         <p>Danh sách</p>
                         <table >
                             {
+                                tongmang && tongmang.length > 0 &&
                                 tongmang.map((item, index) => {
                                     return (
                                         <tbody key={item.id}>
+
                                             <tr  >
-                                                <th>{item.username}</th>
-                                                <th>{item.pw}</th>
+                                                {suataikhoan === true ?
+                                                    <>
+                                                        <th>{item.username}</th>
+                                                        <th>{item.pw}</th>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <th><input value={item.username} onChange={(event) => this.edittk(event)}/></th>
+                                                        <th><input/></th>
+                                                    </>
+                                                }
+
                                                 <th>
-                                                    <button>
+                                                    <button >
                                                         Edit
                                                     </button>
                                                 </th>
@@ -37,6 +52,7 @@ class Show extends React.Component {
                                                 </th>
                                             </tr>
                                         </tbody>
+
                                     )
                                 })
                             }
