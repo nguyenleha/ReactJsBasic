@@ -15,15 +15,8 @@ class Show extends React.Component {
     nutsuataikhoan = (event) => {
         this.props.suataikhoan(event)
     }
-    // nutedit = (event) => {
-    //     this.setState({
-    //         suataikhoan: 'aa'
-    //     })
-    // }
     render() {
         const { tongmang, dodaitaikhoan, dulieusuatk } = this.props;
-        // console.log(">>> Check empty object ben show", dodaitaikhoan)
-        // console.log(">>> Check empty object ben show", dulieusuatk)
         return (
             <>
                 <div className="right">
@@ -72,15 +65,10 @@ class Show extends React.Component {
                                                 </th>
                                             </tr>
                                         </tbody>
-
                                     )
                                 })
                             }
                         </table>
-
-                    </div>
-                    <div className="right-inductor">
-
                     </div>
                 </div>
             </>
