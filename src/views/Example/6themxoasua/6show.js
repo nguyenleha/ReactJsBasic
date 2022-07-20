@@ -12,7 +12,7 @@ class Show extends React.Component {
     editpw = (event) => {
         this.props.doimatkhau(event)
     }
-    nutsuataikhoan=(event)=>{
+    nutsuataikhoan = (event) => {
         this.props.suataikhoan(event)
     }
     // nutedit = (event) => {
@@ -35,7 +35,6 @@ class Show extends React.Component {
                                 tongmang.map((item, index) => {
                                     return (
                                         <tbody key={item.id}>
-
                                             <tr  >
                                                 {dodaitaikhoan === true ?
                                                     <>
@@ -46,11 +45,11 @@ class Show extends React.Component {
                                                     <>{dulieusuatk.id === item.id ?
                                                         <>
                                                             <th><input value={dulieusuatk.username}
-                                                             onChange={(event) => this.edittk(event)} /></th>
+                                                                onChange={(event) => this.edittk(event)} /></th>
                                                             <th>
                                                                 <input value={dulieusuatk.pw}
-                                                             onChange={(event) => this.editpw(event)} />
-                                                             </th>
+                                                                    onChange={(event) => this.editpw(event)} />
+                                                            </th>
                                                         </>
                                                         :
                                                         <>
@@ -58,13 +57,11 @@ class Show extends React.Component {
                                                             <th>{item.pw}</th>
                                                         </>
                                                     }
-
                                                     </>
                                                 }
-
                                                 <th>
                                                     <button onClick={() => this.nutsuataikhoan(item)}>
-                                                        Edit
+                                                        {dodaitaikhoan === false && dulieusuatk.id === item.id ? "Save" : "Edit"}
                                                     </button>
                                                 </th>
                                                 <th>
