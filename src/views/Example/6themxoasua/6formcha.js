@@ -25,32 +25,45 @@ class Themxoasua6 extends React.Component {
             tongmang: xoataikhoan
         })
     }
-    doitaikhoan = (doi) => {
-        const nutsua = { ...this.state.dulieusuatk }
-        nutsua.username= doi.target.value
-        // nutsua.pw= doi.target.value
+    doitaikhoan = (event) => {
+        let nutsua = { ...this.state.dulieusuatk }
+        nutsua.username = event.target.value
         this.setState({
-            dulieusuatk: nutsua
+            dulieusuatk: nutsua,
+
+        })
+    }
+    doimatkhau = (event) => {
+        let nutsua = { ...this.state.dulieusuatk }
+        nutsua.pw = event.target.value
+        this.setState({
+            dulieusuatk: nutsua,
+
         })
     }
     suataikhoan = (sua) => {
+        
         const { dulieusuatk, tongmang } = this.state
         const suataikhoan = Object.keys(dulieusuatk).length === 0
         if (suataikhoan === false && dulieusuatk.id === sua.id) {
             const taikhoanao = [...tongmang]
-            const truytimid = taikhoanao.findIndex((item) => item.id === sua.id)
+            const truytimid = taikhoanao.findIndex((item => item.id === sua.id))
             taikhoanao[truytimid].username = dulieusuatk.username
-            taikhoanao[truytimid].pw = dulieusuatk.username
+            taikhoanao[truytimid].pw = dulieusuatk.pw
             this.setState({
                 tongmang: taikhoanao,
                 dulieusuatk: {}
             })
+            return
         }
+        this.setState({
+            dulieusuatk: sua
+        })
     }
 
     render() {
         const { dulieusuatk } = this.state
-        const suataikhoan = Object.keys(dulieusuatk).length === 0 //tra ra true, neu Length (L viet hoa) tra ra false
+        const dodaitaikhoan = Object.keys(dulieusuatk).length === 0 //tra ra true, neu Length (L viet hoa) tra ra false
         // console.log(">>> Check empty object", suataikhoan)
         return (
             <>
@@ -59,12 +72,15 @@ class Themxoasua6 extends React.Component {
                     <p>Bài test Thêm - Xóa - Sửa</p>
                     <div className="login_box">
                         <Themlist themtaikhoan={this.themtaikhoan} />
-                        <Show 
-                        suataikhoan={suataikhoan} 
-                        dulieusuatk={dulieusuatk}
-                        tongmang={this.state.tongmang}
-                         xoataikhoan={this.xoataikhoan} 
-                         doitaikhoan={this.doitaikhoan}/>
+                        <Show
+                            dodaitaikhoan={dodaitaikhoan}
+                            suataikhoan={this.suataikhoan}
+                            dulieusuatk={dulieusuatk}
+                            tongmang={this.state.tongmang}
+                            xoataikhoan={this.xoataikhoan}
+                            doitaikhoan={this.doitaikhoan}
+                            doimatkhau={this.doimatkhau}
+                             />
                     </div>
                 </div>
             </>

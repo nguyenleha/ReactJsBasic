@@ -6,14 +6,24 @@ class Show extends React.Component {
     deletetk = (event) => {
         this.props.xoataikhoan(event)
     }
-    edittk = (event) =>{
+    edittk = (event) => {
         this.props.doitaikhoan(event)
     }
-
+    editpw = (event) => {
+        this.props.doimatkhau(event)
+    }
+    nutsuataikhoan=(event)=>{
+        this.props.suataikhoan(event)
+    }
+    // nutedit = (event) => {
+    //     this.setState({
+    //         suataikhoan: 'aa'
+    //     })
+    // }
     render() {
-        const { tongmang, suataikhoan, dulieusuatk} = this.props;
-        console.log(">>> Check empty object ben show", suataikhoan)
-        console.log(">>> Check empty object ben show", dulieusuatk)
+        const { tongmang, dodaitaikhoan, dulieusuatk } = this.props;
+        // console.log(">>> Check empty object ben show", dodaitaikhoan)
+        // console.log(">>> Check empty object ben show", dulieusuatk)
         return (
             <>
                 <div className="right">
@@ -27,20 +37,33 @@ class Show extends React.Component {
                                         <tbody key={item.id}>
 
                                             <tr  >
-                                                {suataikhoan === true ?
+                                                {dodaitaikhoan === true ?
                                                     <>
                                                         <th>{item.username}</th>
                                                         <th>{item.pw}</th>
                                                     </>
                                                     :
-                                                    <>
-                                                        <th><input value={item.username} onChange={(event) => this.edittk(event)}/></th>
-                                                        <th><input/></th>
+                                                    <>{dulieusuatk.id === item.id ?
+                                                        <>
+                                                            <th><input value={dulieusuatk.username}
+                                                             onChange={(event) => this.edittk(event)} /></th>
+                                                            <th>
+                                                                <input value={dulieusuatk.pw}
+                                                             onChange={(event) => this.editpw(event)} />
+                                                             </th>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <th>{item.username}</th>
+                                                            <th>{item.pw}</th>
+                                                        </>
+                                                    }
+
                                                     </>
                                                 }
 
                                                 <th>
-                                                    <button >
+                                                    <button onClick={() => this.nutsuataikhoan(item)}>
                                                         Edit
                                                     </button>
                                                 </th>
